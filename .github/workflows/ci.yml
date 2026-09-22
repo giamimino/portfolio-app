@@ -38,7 +38,7 @@ jobs:
         run: npm run typecheck
 
       - name: Format check
-        run: npm run prettier:check
+        run: npm run format:check
 
       - name: Expo Doctor
         run: npx expo-doctor
