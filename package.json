@@ -45,9 +45,13 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    
     "lint": "expo lint",
+    
     "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
-    "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
+    "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
+    
+    "typecheck": "npx tsc --noEmit"
   },
   "private": true
 }
