@@ -4,7 +4,7 @@
  * @param {ReturnType<import('@actions/github').getOctokit>} Options.github
  */
 
-module.export = async ({ github, context }) => {
+module.exports = async ({ github, context }) => {
   const comment = context.payload.comment.body.trim().toLowerCase();
   const issueNumber = context.payload.issue.number;
   const commenter = context.payload.comment.user.login;
