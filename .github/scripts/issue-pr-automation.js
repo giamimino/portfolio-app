@@ -60,21 +60,31 @@ module.exports = async ({ github, context }) => {
 
         // step 3 Create initial commit
 
-        const { data: existingFile } = await github.rest.repos.getContent({
-          owner,
-          repo,
-          path: 'ISSUE.md',
-          ref: branch,
-        })
+        let sha;
+
+        try {
+          const { data: existingFile } = await github.rest.repos.getContent({
+            owner,
+            repo,
+            path: 'ISSUE.md',
+            ref: branch,
+          });
+
+          sha = existingFile.sha;
+        } catch (error) {
+          if (error.status !== 404) {
+            throw error;
+          }
+        }
 
         await github.rest.repos.createOrUpdateFileContents({
-          owner: owner,
-          repo: repo,
+          owner,
+          repo,
           path: 'ISSUE.md',
           message: 'Initialize issue branch',
           content: Buffer.from(body).toString('base64'),
           branch,
-          sha: existingFile.sha,
+          ...(sha && { sha }),
           committer: {
             name: 'github-actions[bot]',
             email: '41898282+github-actions[bot]@users.noreply.github.com',
