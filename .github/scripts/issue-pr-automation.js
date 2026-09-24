@@ -10,6 +10,7 @@ module.exports = async ({ github, context }) => {
   const commenter = context.payload.comment.user.login;
   const owner = context.repo.owner;
   const repo = context.repo.repo;
+  const body = context.payload.issue.body
 
   switch (comment) {
     case '/create':
