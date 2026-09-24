@@ -270,7 +270,7 @@ module.exports = async ({ github, context }) => {
           owner,
           repo,
           issue_number: issueNumber,
-          labels: ['closed'],
+          labels: ['done'],
         });
 
         console.log('Successfully updated issue labels');
