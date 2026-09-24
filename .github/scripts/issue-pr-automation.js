@@ -165,25 +165,22 @@ module.exports = async ({ github, context }) => {
 
         console.log('Getting PR Number...');
 
-        const { data: events } = await github.rest.issues.listEventsForTimeline(
-          {
-            owner,
-            repo,
-            issue_number: issueNumber,
-          },
+        const { data: pulls } = await github.rest.pulls.list({
+          owner,
+          repo,
+          state: 'open',
+          per_page: 100,
+        });
+
+        const pull = pulls.find(pr =>
+          pr.body?.includes(`Created automatically from issue #${issueNumber}`),
         );
 
-        const prEvents = events.find(
-          event =>
-            event.name === 'cross-referenced' &&
-            event.source?.issue?.pull_request,
-        );
-
-        if (!prEvents) {
+        if (!pull) {
           throw new Error(`No PR found for issue #${issueNumber}`);
         }
 
-        const prNumber = prEvents.source.issue.number;
+        const prNumber = pull.number;
 
         console.log(`Found PR #${prNumber}`);
 
