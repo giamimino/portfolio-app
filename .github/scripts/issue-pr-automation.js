@@ -10,14 +10,19 @@ module.exports = async ({ github, context }) => {
   const commenter = context.payload.comment.user.login;
   const owner = context.repo.owner;
   const repo = context.repo.repo;
-  const body = context.payload.issue.body
-
+  
   switch (comment) {
     case '/create':
       {
         console.log('Creating branch...');
-
+        
         // step 1 create branch name
+        
+        const body = context.payload.issue.body
+
+        if (!body) {
+          throw new Error(`Issue #${issueNumber} has no body.`);
+        }
 
         const branchSection = body.split('## Branch')[1];
 
@@ -60,7 +65,7 @@ module.exports = async ({ github, context }) => {
           repo: repo,
           path: 'ISSUE.md',
           message: 'Initialize issue branch',
-          content: Buffer.from(content).toString('base64'),
+          content: Buffer.from(body).toString('base64'),
           branch,
           committer: {
             name: 'github-actions[bot]',
