@@ -29,6 +29,7 @@
     "react-native-worklets": "0.10.1"
   },
   "devDependencies": {
+    "@actions/github": "^9.1.1",
     "@types/react": "~19.2.2",
     "babel-preset-expo": "^57.0.12",
     "eslint": "^9.39.5",
@@ -46,12 +47,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    
     "lint": "expo lint",
-    
     "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
     "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
-
     "typecheck": "npx tsc --noEmit"
   },
   "private": true
