@@ -10,15 +10,15 @@ module.exports = async ({ github, context }) => {
   const commenter = context.payload.comment.user.login;
   const owner = context.repo.owner;
   const repo = context.repo.repo;
-  
+
   switch (comment) {
     case '/create':
       {
         console.log('Creating branch...');
-        
+
         // step 1 create branch name
-        
-        const body = context.payload.issue.body
+
+        const body = context.payload.issue.body;
 
         if (!body) {
           throw new Error(`Issue #${issueNumber} has no body.`);
@@ -84,7 +84,6 @@ module.exports = async ({ github, context }) => {
         console.log('Creating PR...');
 
         const issueTitle = context.payload.issue.title;
-        const milestone = context.payload.issue.milestone?.number;
 
         const { data: PR } = await github.rest.pulls.create({
           owner: owner,
@@ -93,6 +92,19 @@ module.exports = async ({ github, context }) => {
           head: branch,
           base: 'main',
           body: `Created automatically from issue #${issueNumber}`,
+        });
+
+        const milestone = context.payload.issue.milestone?.number;
+
+        cconsole.log(`Commenter: ${commenter}`);
+        console.log(
+          `Milestone: ${context.payload.issue.milestone?.number ?? 'none'}`,
+        );
+
+        await github.rest.issues.update({
+          owner,
+          repo,
+          issue_number: PR.number,
           assignees: [commenter],
           milestone,
         });
