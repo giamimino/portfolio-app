@@ -43,7 +43,7 @@ module.exports = async ({ github, context }) => {
 
         // step 2 Create Branch
 
-        const { data: mainRef } = await github.rest.git.gitRef({
+        const { data: mainRef } = await github.rest.git.getRef({
           owner: owner,
           repo: repo,
           ref: 'heads/main',
