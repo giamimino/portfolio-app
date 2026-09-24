@@ -96,7 +96,7 @@ module.exports = async ({ github, context }) => {
 
         const milestone = context.payload.issue.milestone?.number;
 
-        cconsole.log(`Commenter: ${commenter}`);
+        console.log(`Commenter: ${commenter}`);
         console.log(
           `Milestone: ${context.payload.issue.milestone?.number ?? 'none'}`,
         );
