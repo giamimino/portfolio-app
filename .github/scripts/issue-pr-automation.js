@@ -323,12 +323,24 @@ The associated pull request has been successfully merged, and this issue has bee
 
         console.log('Updating issue labels...');
 
-        await github.rest.issues.removeLabel({
+        const { data: labels } = await github.rest.issues.listLabelsOnIssue({
           owner,
           repo,
           issue_number: issueNumber,
-          label: 'in-progress',
         });
+
+        const hasInProgress = labels.some(
+          label => label.name === 'in-progress',
+        );
+
+        if (hasInProgress) {
+          await github.rest.issues.removeLabel({
+            owner,
+            repo,
+            issue_number: issueNumber,
+            name: 'in-progress',
+          });
+        }
 
         await github.rest.issues.addLabels({
           owner,
