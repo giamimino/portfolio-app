@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+npx lint-staged
+
+FILES=$(git diff --cached --name-only)
+
+if echo "$FILES" | grep -q "^src/"; then
+  echo "Checking changes..."
+fi
