@@ -2,4 +2,4 @@
 
 set -e
 
-npx lint-staged
+npx --no-install lint-staged
