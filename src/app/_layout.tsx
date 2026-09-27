@@ -1,6 +1,7 @@
 import { AppProviders } from '@/providers/AppProviders';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
+import { PortalHost } from '@rn-primitives/portal';
 import '../../global.css';
 
 export default function RootLayout() {
@@ -23,6 +24,7 @@ export default function RootLayout() {
         <Stack.Screen name="about" options={{ title: 'About' }} />
         <Stack.Screen name="contact" options={{ title: 'Contact ' }} />
       </Stack>
+      <PortalHost />
     </AppProviders>
   );
 }
