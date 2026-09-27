@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Portfolio",
-    "slug": "portfolio-app",
+    "slug": "portfolio",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon-256.png",
@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/images/icon-256.png",
         "backgroundColor": "#1a1a1a"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.gia22.portfolioapp"
     },
     "web": {
       "output": "static",
@@ -32,6 +33,12 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "26387688-8f09-40ed-b288-851927a3e46a"
+      }
+    },
+    "owner": "gia22"
   }
 }
