@@ -1,15 +1,14 @@
 import { AppProviders } from '@/providers/AppProviders';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import { PortalHost } from '@rn-primitives/portal';
 import '../../global.css';
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    'GoogleSansFlex-Regular': require('../assets/fonts/GoogleSansFlex-Regular.ttf'),
-    'GoogleSansFlex-Medium': require('../assets/fonts/GoogleSansFlex-Medium.ttf'),
-    'GoogleSansFlex-SemiBold': require('../assets/fonts/GoogleSansFlex-SemiBold.ttf'),
-    'GoogleSansFlex-Bold': require('../assets/fonts/GoogleSansFlex-Bold.ttf'),
+    'GoogleSansFlex-Regular': require('../../assets/fonts/Google_Sans_Flex/GoogleSansFlex_9pt-Regular.ttf'),
+    'GoogleSansFlex-Medium': require('../../assets/fonts/Google_Sans_Flex/GoogleSansFlex_9pt-Medium.ttf'),
+    'GoogleSansFlex-SemiBold': require('../../assets/fonts/Google_Sans_Flex/GoogleSansFlex_9pt-SemiBold.ttf'),
+    'GoogleSansFlex-Bold': require('../../assets/fonts/Google_Sans_Flex/GoogleSansFlex_9pt-Bold.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -24,7 +23,6 @@ export default function RootLayout() {
         <Stack.Screen name="about" options={{ title: 'About' }} />
         <Stack.Screen name="contact" options={{ title: 'Contact ' }} />
       </Stack>
-      <PortalHost />
     </AppProviders>
   );
 }

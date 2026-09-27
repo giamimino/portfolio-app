@@ -1,5 +1,8 @@
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Text } from '@/components/ui/text';
+import { useTheme } from '@/providers/ThemeProvider';
 import { RelativePathString, router } from 'expo-router';
-import { Button, Text, View } from 'react-native';
 
 const pages: { title: string; path: RelativePathString }[] = [
   { title: 'Projects', path: '../projects' },
@@ -8,21 +11,34 @@ const pages: { title: string; path: RelativePathString }[] = [
 ];
 
 export default function HomeScreen() {
+  const { setTheme } = useTheme();
   const RedirectTo = (path: RelativePathString) => {
     router.push(path);
   };
 
   return (
-    <View>
-      <View className="m-2 p-6 border border-red-600 rounded-xl gap-2.5">
-        {pages.map(page => (
-          <Button
-            key={page.title}
-            title={page.title}
-            onPress={() => RedirectTo(page.path)}
-          />
-        ))}
-      </View>
-    </View>
+    <Card>
+      <CardContent>
+        <Card>
+          <CardContent>
+            <Button onPress={() => setTheme('light')}>
+              <Text>Light</Text>
+            </Button>
+            <Button onPress={() => setTheme('dark')}>
+              <Text>Dark</Text>
+            </Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="flex flex-col gap-[10px]">
+            {pages.map(page => (
+              <Button key={page.title} onPress={() => RedirectTo(page.path)}>
+                <Text>{page.title}</Text>
+              </Button>
+            ))}
+          </CardContent>
+        </Card>
+      </CardContent>
+    </Card>
   );
 }
