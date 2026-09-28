@@ -1,3 +1,4 @@
+import Screen from '@/components/layout/Screen';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
@@ -17,28 +18,30 @@ export default function HomeScreen() {
   };
 
   return (
-    <Card>
-      <CardContent>
-        <Card>
-          <CardContent>
-            <Button onPress={() => setTheme('light')}>
-              <Text>Light</Text>
-            </Button>
-            <Button onPress={() => setTheme('dark')}>
-              <Text>Dark</Text>
-            </Button>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="flex flex-col gap-[10px]">
-            {pages.map(page => (
-              <Button key={page.title} onPress={() => RedirectTo(page.path)}>
-                <Text>{page.title}</Text>
+    <Screen>
+      <Card>
+        <CardContent>
+          <Card>
+            <CardContent>
+              <Button onPress={() => setTheme('light')}>
+                <Text>Light</Text>
               </Button>
-            ))}
-          </CardContent>
-        </Card>
-      </CardContent>
-    </Card>
+              <Button onPress={() => setTheme('dark')}>
+                <Text>Dark</Text>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="flex flex-col gap-[10px]">
+              {pages.map(page => (
+                <Button key={page.title} onPress={() => RedirectTo(page.path)}>
+                  <Text>{page.title}</Text>
+                </Button>
+              ))}
+            </CardContent>
+          </Card>
+        </CardContent>
+      </Card>
+    </Screen>
   );
 }

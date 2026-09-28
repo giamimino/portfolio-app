@@ -17,7 +17,7 @@ export default function RootLayout() {
 
   return (
     <AppProviders>
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" options={{ title: 'Home' }} />
         <Stack.Screen name="projects" options={{ title: 'Projects' }} />
         <Stack.Screen name="about" options={{ title: 'About' }} />
