@@ -4,6 +4,7 @@ export default function ProjectsScreen() {
   return (
     <View>
       <Text>Projects</Text>
+      <Text>Hello this is my projects</Text>
     </View>
   );
 }
