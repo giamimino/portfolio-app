@@ -1,9 +1,10 @@
+import Motion from '@/components/animations/Motion';
+import AnimatedIntro from '@/components/common/Animated-intro';
+import Section from '@/components/common/Section';
+import Container from '@/components/layout/Container';
 import Screen from '@/components/layout/Screen';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import { useTheme } from '@/providers/ThemeProvider';
-import { RelativePathString, router } from 'expo-router';
+import { RelativePathString } from 'expo-router';
 
 const pages: { title: string; path: RelativePathString }[] = [
   { title: 'Projects', path: '../projects' },
@@ -12,36 +13,23 @@ const pages: { title: string; path: RelativePathString }[] = [
 ];
 
 export default function HomeScreen() {
-  const { setTheme } = useTheme();
-  const RedirectTo = (path: RelativePathString) => {
-    router.push(path);
-  };
-
   return (
     <Screen>
-      <Card>
-        <CardContent>
-          <Card>
-            <CardContent>
-              <Button onPress={() => setTheme('light')}>
-                <Text>Light</Text>
-              </Button>
-              <Button onPress={() => setTheme('dark')}>
-                <Text>Dark</Text>
-              </Button>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="flex flex-col gap-[10px]">
-              {pages.map(page => (
-                <Button key={page.title} onPress={() => RedirectTo(page.path)}>
-                  <Text>{page.title}</Text>
-                </Button>
-              ))}
-            </CardContent>
-          </Card>
-        </CardContent>
-      </Card>
+      <Container>
+        <Section
+          noIcons={{ tr: true, tl: true, bl: true, br: true }}
+          className="pt-12 gap-15 items-center justify-center border-0">
+          <AnimatedIntro />
+          <Motion duration={750} ease='ease-out' delay={500} className='mt-4'>
+            <Text className="dark:glowing-text text-xl md:text-2xl text-n-2 text-center">
+              A Fullstack Web Developer & ReactNative developer
+            </Text>
+            <Text className="dark:glowing-text italic text-lg md:text-xl text-n-3 text-center block">
+              {`"Writing better code than AI"`}
+            </Text>
+          </Motion>
+        </Section>
+      </Container>
     </Screen>
   );
 }
