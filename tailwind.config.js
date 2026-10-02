@@ -23,9 +23,9 @@ module.exports = {
         foreground: 'var(--foreground)',
 
         n: {
-          '2': 'var(--n-2)',
-          '3': 'var(--n-3)',
-          '8': 'var(--n-8)',
+          2: 'var(--n-2)',
+          3: 'var(--n-3)',
+          8: 'var(--n-8)',
         },
 
         primary: {

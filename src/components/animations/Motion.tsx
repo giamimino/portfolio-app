@@ -93,6 +93,7 @@ const Motion = ({
   const opacity = useSharedValue(config.from.opacity);
   const translateX = useSharedValue(config.from.translateX);
   const translateY = useSharedValue(config.from.translateY);
+
   useEffect(() => {
     opacity.value = withDelay(
       delay,
@@ -106,7 +107,7 @@ const Motion = ({
       delay,
       withTiming(0, { duration, easing, reduceMotion: ReduceMotion.System }),
     );
-  }, []);
+  }, [present, duration, easing, translateX, translateY]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,
