@@ -11,9 +11,7 @@
       "icon": "./assets/images/icon-256.png"
     },
     "splash": {
-      "image": "./assets/images/icon-256.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#1a1a1a"
+      "image": "./assets/images/icon-256.png"
     },
     "android": {
       "adaptiveIcon": {
