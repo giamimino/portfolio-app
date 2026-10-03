@@ -11,7 +11,7 @@ export default function HomeScreen() {
       <Container>
         <Section
           noIcons={{ tr: true, tl: true, bl: true, br: true }}
-          className="pt-12 gap-15 items-center justify-center border-0">
+          className="gap-15 items-center justify-center border-0">
           <AnimatedIntro />
           <Motion duration={750} ease="ease-out" delay={500} className="mt-4">
             <Text className="dark:glowing-text text-xl md:text-2xl text-n-2 text-center">

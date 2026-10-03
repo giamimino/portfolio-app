@@ -10,11 +10,11 @@ import { useColorScheme } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colorScheme } from 'nativewind';
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = 'light' | 'dark';
 
 type ThemeContextValue = {
   theme: Theme;
-  resolvedTheme: 'light' | 'dark';
+  resolvedTheme: Theme;
   setTheme: (theme: Theme) => void;
 };
 
@@ -24,17 +24,13 @@ const ThemeKey = '@app-theme';
 
 export function ThemeProvider({ children }: PropsWithChildren) {
   const systemTheme = useColorScheme();
-  const [theme, setThemeState] = useState<Theme>('system');
+  const [theme, setThemeState] = useState<Theme>('dark');
 
   useEffect(() => {
     async function loadTheme() {
       const storedTheme = await AsyncStorage.getItem(ThemeKey);
 
-      if (
-        storedTheme === 'dark' ||
-        storedTheme === 'light' ||
-        storedTheme === 'system'
-      ) {
+      if (storedTheme === 'dark' || storedTheme === 'light') {
         setThemeState(storedTheme);
       }
     }
@@ -42,12 +38,7 @@ export function ThemeProvider({ children }: PropsWithChildren) {
     loadTheme();
   }, []);
 
-  const resolvedTheme =
-    theme === 'system'
-      ? systemTheme === 'unspecified'
-        ? 'light'
-        : systemTheme
-      : theme;
+  const resolvedTheme = theme;
 
   const setTheme = async (nextTheme: Theme) => {
     setThemeState(nextTheme);
