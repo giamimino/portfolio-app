@@ -36,10 +36,8 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "client/src/**/*.{js,jsx,ts,tsx}": "eslint --config client/eslint.config.js",
-    "client/src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write",
-    "server/src/**/*.{js,jsx,ts,tsx}": "eslint --config client/eslint.config.js",
-    "server/src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write"
+    "client/src/**/*.{js,jsx,ts,tsx}": ["eslint --config client/eslint.config.js", "prettier --write"],
+    "server/src/**/*.{js,jsx,ts,tsx}": ["eslint --config server/eslint.config.mjs", "prettier --write"]
   },
   "devDependencies": {
     "@actions/github": "^9.1.1",
