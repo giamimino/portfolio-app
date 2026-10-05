@@ -3,10 +3,26 @@
   "version": "0.4.0",
   "private": true,
   "scripts": {
-    "test": "echo \"server\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
+    "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
   "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "typescript": "^5",
     "prettier": "^3.9.8"
   }
 }
