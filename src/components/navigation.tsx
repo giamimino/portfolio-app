@@ -20,7 +20,7 @@ const Navigation = () => {
     <View
       style={{ paddingBottom: insets.bottom + 25 }}
       className="absolute left-0 bottom-0 right-0 items-center">
-      <View className="flex-row rounded-md items-center justify-center gap-5 border border-border bg-n-8 px-4 py-3">
+      <View className="flex-row rounded-lg items-center justify-center gap-5 border border-border bg-n-8 px-4 py-3">
         <TouchableOpacity onPress={() => router.replace('/')}>
           <Text className="text-xl font-extrabold">GM</Text>
         </TouchableOpacity>

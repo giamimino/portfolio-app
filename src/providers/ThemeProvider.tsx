@@ -6,7 +6,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { useColorScheme } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colorScheme } from 'nativewind';
 
@@ -23,7 +22,6 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 const ThemeKey = '@app-theme';
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const systemTheme = useColorScheme();
   const [theme, setThemeState] = useState<Theme>('dark');
 
   useEffect(() => {

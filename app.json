@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon-256.png",
     "scheme": "portfolioapp",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "ios": {
       "icon": "./assets/images/icon-256.png"
     },
