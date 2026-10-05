@@ -11,6 +11,8 @@
     "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
   },
   "dependencies": {
+    "firebase": "^12.19.0",
+    "firebase-admin": "^14.5.0",
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -22,7 +24,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
-    "typescript": "^5",
-    "prettier": "^3.9.8"
+    "prettier": "^3.9.8",
+    "typescript": "^5"
   }
 }
