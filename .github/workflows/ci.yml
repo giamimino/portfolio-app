@@ -6,17 +6,21 @@ on:
   push:
     branches: [main]
     paths:
-      - "src/**"
+      - "client/src/**"
+      - "server/src/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/**"
 
 concurrency:
   cancel-in-progress: true
   group: ci-${{ github.ref }}
 
 jobs:
-  ci:
-    name: Checks
+  client:
+    name: Client Checks
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - name: Checkout repo
@@ -26,19 +30,47 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: "npm"
+          cache: npm
 
       - name: Install deps
         run: npm ci
 
       - name: Lint
-        run: npm run lint
+        run: npm run lint:client:check
 
       - name: Typecheck
-        run: npm run typecheck
+        run: npm run typecheck:client
 
       - name: Format check
-        run: npm run format:check
+        run: npm run format:client:check
 
       - name: Expo Doctor
         run: npx expo-doctor
+        working-directory: client
+
+  server:
+    name: Server Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint:server:check
+
+      - name: Typecheck
+        run: npm run typecheck:server
+
+      - name: Format check
+        run: npm run format:server:check
