@@ -17,7 +17,11 @@
   "license": "SEE LICENSE IN LICENSE",
   "author": "gia miminoshvili",
   "scripts": {
-    "start:client": "npm run start --workspace=portfolio-app",
+    "server:dev": "npm run dev --workspace=portfolio-server",
+    "server:build": "npm run build --workspace=portfolio-server",
+
+    "server:start": "npm run start --workspace=portfolio-server",
+    "client:start": "npm run start --workspace=portfolio-app",
 
     "start:android": "npm run android --workspace=portfolio-app",
     "start:ios": "npm run ios --workspace=portfolio-app",
@@ -25,9 +29,13 @@
 
     "lint:client:check": "npm run lint --workspace=portfolio-app",
     "lint:client:fix": "npm run lint --workspace=portfolio-app -- --fix",
+    "lint:server:check": "npm run lint --workspace=portfolio-server",
+    "lint:server:fix": "npm run lint --workspace=portfolio-server -- --fix",
 
     "format:client:check": "npm run format:check --workspace=portfolio-app",
     "format:client:fix": "npm run format:fix --workspace=portfolio-app",
+    "format:server:check": "npm run format:check --workspace=portfolio-server",
+    "format:server:fix": "npm run format:fix --workspace=portfolio-server",
 
     "typecheck:client": "npm run typecheck --workspace=portfolio-app",
 
@@ -35,7 +43,9 @@
   },
   "lint-staged": {
     "client/src/**/*.{js,jsx,ts,tsx}": "eslint --config client/eslint.config.js",
-    "client/src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write"
+    "client/src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write",
+    "server/src/**/*.{js,jsx,ts,tsx}": "eslint --config client/eslint.config.js",
+    "server/src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write"
   },
   "devDependencies": {
     "husky": "^9.1.7",
