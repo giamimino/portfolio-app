@@ -1,6 +1,10 @@
 {
   "name": "portfolio",
   "version": "0.4.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "description": "A cross-platform mobile portfolio app showcasing my development projects, skills, and experience. Built with React Native, Expo, and TypeScript.",
   "homepage": "https://github.com/giamimino/portfolio-app#readme",
   "bugs": {
@@ -13,8 +17,32 @@
   "license": "SEE LICENSE IN LICENSE",
   "author": "gia miminoshvili",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:client": "npm run start --workspace=portfolio-app",
+
+    "start:android": "npm run android --workspace=portfolio-app",
+    "start:ios": "npm run ios --workspace=portfolio-app",
+    "start:web": "npm run web --workspace=portfolio-app",
+
+    "lint:client:check": "npm run lint --workspace=portfolio-app",
+    "lint:client:fix": "npm run lint --workspace=portfolio-app -- --fix",
+
+    "format:client:check": "npm run format:check --workspace=portfolio-app",
+    "format:client:fix": "npm run format:fix --workspace=portfolio-app",
+
+    "typecheck:client": "npm run typecheck --workspace=portfolio-app",
+
+    "prepare": "husky"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "lint-staged": {
+    "client/src/**/*.{js,jsx,ts,tsx}": "eslint --config client/eslint.config.js",
+    "client/src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.5.1",
+    "@actions/github": "^9.1.1",
+    "eslint": "^9.39.5",
+    "prettier": "^3.9.8",
+    "typescript": "~6.0.3"
+  }
 }
