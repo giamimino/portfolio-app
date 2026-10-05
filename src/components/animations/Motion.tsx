@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, useEffect } from 'react';
 import Animated, {
   Easing,
+  interpolate,
   ReduceMotion,
   useAnimatedStyle,
   useSharedValue,
@@ -89,31 +90,40 @@ const Motion = ({
 }) => {
   const config = animations[present];
   const easing = AnimationTypes[ease];
-
-  const opacity = useSharedValue(config.from.opacity);
-  const translateX = useSharedValue(config.from.translateX);
-  const translateY = useSharedValue(config.from.translateY);
+  const progress = useSharedValue(0);
 
   useEffect(() => {
-    opacity.value = withDelay(
+    progress.value = withDelay(
       delay,
-      withTiming(1, { duration, easing, reduceMotion: ReduceMotion.System }),
+      withTiming(1, {
+        duration,
+        easing,
+        reduceMotion: ReduceMotion.System,
+      }),
     );
-    translateX.value = withDelay(
-      delay,
-      withTiming(0, { duration, easing, reduceMotion: ReduceMotion.System }),
-    );
-    translateY.value = withDelay(
-      delay,
-      withTiming(0, { duration, easing, reduceMotion: ReduceMotion.System }),
-    );
-  }, [present, duration, easing, translateX, translateY]);
+  }, [progress, delay, duration, easing]);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
+    opacity: interpolate(
+      progress.value,
+      [0, 1],
+      [config.from.opacity, config.to.opacity],
+    ),
     transform: [
-      { translateX: translateX.value },
-      { translateY: translateY.value },
+      {
+        translateX: interpolate(
+          progress.value,
+          [0, 1],
+          [config.from.translateX, config.to.translateX],
+        ),
+      },
+      {
+        translateY: interpolate(
+          progress.value,
+          [0, 1],
+          [config.from.translateY, config.to.translateY],
+        ),
+      },
     ],
   }));
   return (
