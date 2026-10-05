@@ -1,71 +1,20 @@
 {
-  "name": "portfolio-app",
-  "main": "expo-router/entry",
-  "version": "1.0.0",
-  "dependencies": {
-    "@expo/ui": "~57.0.20",
-    "@expo/vector-icons": "^15.0.2",
-    "@react-native-async-storage/async-storage": "2.2.0",
-    "@rn-primitives/portal": "^1.5.3",
-    "@rn-primitives/slot": "^1.5.2",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "expo": "~57.0.25",
-    "expo-constants": "~57.0.19",
-    "expo-device": "~57.0.2",
-    "expo-font": "~57.0.4",
-    "expo-glass-effect": "~57.0.4",
-    "expo-image": "~57.0.5",
-    "expo-linking": "~57.0.11",
-    "expo-router": "~57.0.23",
-    "expo-splash-screen": "~57.0.9",
-    "expo-status-bar": "~57.0.1",
-    "expo-symbols": "~57.0.3",
-    "expo-system-ui": "~57.0.4",
-    "expo-web-browser": "~57.0.3",
-    "nativewind": "^4.2.7",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-native": "0.86.3",
-    "react-native-gesture-handler": "~2.32.0",
-    "react-native-reanimated": "^4.5.1",
-    "react-native-safe-area-context": "~5.7.0",
-    "react-native-screens": "~4.26.0",
-    "react-native-web": "~0.21.0",
-    "react-native-worklets": "^0.10.1",
-    "tailwind-merge": "^3.7.0",
-    "tailwindcss-animate": "^1.0.7"
+  "name": "portfolio",
+  "version": "0.4.0",
+  "description": "A cross-platform mobile portfolio app showcasing my development projects, skills, and experience. Built with React Native, Expo, and TypeScript.",
+  "homepage": "https://github.com/giamimino/portfolio-app#readme",
+  "bugs": {
+    "url": "https://github.com/giamimino/portfolio-app/issues"
   },
-  "devDependencies": {
-    "@actions/github": "^9.1.1",
-    "@types/react": "~19.2.2",
-    "babel-preset-expo": "^57.0.12",
-    "eslint": "^9.39.5",
-    "eslint-config-expo": "^57.0.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.5.1",
-    "prettier": "^3.9.8",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.19",
-    "typescript": "~6.0.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giamimino/portfolio-app.git"
   },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "gia miminoshvili",
   "scripts": {
-    "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web",
-    "lint": "expo lint",
-    "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
-    "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
-    "typecheck": "npx tsc --noEmit",
-    "prepare": "husky"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "eslint --config eslint.config.js",
-    "src/**/*.{json,css,ts,tsx,js,jsx}": "prettier --write"
-  },
-  "private": true
+  "dependencies": {},
+  "devDependencies": {}
 }
