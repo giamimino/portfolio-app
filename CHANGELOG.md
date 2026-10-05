@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.0] - 2026/10/05
+
+## What's Changed
+
+* Established Application Layout (e.g., SafeArea, Container, etc)
+* Implement Home screen, Contact UI and Animated Components
+* Added new reusable layouts header and navigation menu.
+
 ## [v0.3.0] - 2026/9/28
 
 ## What's Changed
