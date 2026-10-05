@@ -30,7 +30,11 @@ module.exports = async ({ github, context }) => {
           throw new Error("Missing '## Branch' section.");
         }
 
-        const branchInfo = branchSection.split('``');
+        let branchInfo = branchSection.split('``');
+
+        if(branchInfo.length === 1) {
+          branchInfo = branchSection.split('`');
+        }
 
         const branchType = branchInfo[1];
         const branchName = branchInfo[3];
