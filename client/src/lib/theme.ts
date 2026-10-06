@@ -44,6 +44,8 @@ export const THEME = {
     n2: '#262626',
     n8: '#fafafa',
     n3: '#737373',
+
+    default: '#fff',
   },
   dark: {
     background: '#0a0a0a',
@@ -82,6 +84,8 @@ export const THEME = {
     n2: '#e5e5e5',
     n8: '#101010',
     n3: '#a3a3a3',
+
+    default: '#000',
   },
 };
 

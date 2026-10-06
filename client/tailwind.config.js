@@ -28,6 +28,53 @@ module.exports = {
           8: 'var(--n-8)',
         },
 
+        brown: {
+          60: 'var(--brown-60)',
+          70: 'var(--brown-70)',
+          80: 'var(--brown-80)',
+        },
+
+        dark: {
+          '02': 'var(--dark-02)',
+          '03': 'var(--dark-03)',
+          '06': 'var(--dark-06)',
+          '10': 'var(--dark-10)',
+          '12': 'var(--dark-12)',
+          '15': 'var(--dark-15)',
+          '25': 'var(--dark-25)',
+        },
+
+        dark: {
+          '10': 'var(--grey-10)',
+          '20': 'var(--grey-20)',
+          '30': 'var(--grey-30)',
+          '40': 'var(--grey-40)',
+          '50': 'var(--grey-50)',
+          '60': 'var(--grey-60)',
+          '70': 'var(--grey-70)',
+          '80': 'var(--grey-80)',
+          '90': 'var(--grey-90)',
+          '100': 'var(--grey-100)',
+        },
+
+        orange: {
+          '10': 'var(--orange-10)',
+        },
+
+        c: {
+          8: 'var(--c-8)',
+        },
+        b: {
+          9: 'var(--b-9)',
+          1: {
+            DEFAULT: 'var(--b-1)',
+            'active': 'var(--b-1-active)'
+          },
+        },
+        a: {
+          3: 'var(--a-3)',
+        },
+
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',

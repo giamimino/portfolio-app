@@ -57,7 +57,9 @@ function Word({ word, index, progress }: WordProps) {
           overflow: 'visible',
         },
       ]}>
-      <Text className="font-bold text-[40px] text-foreground">{word}</Text>
+      <Text className="font-bold text-[40px] text-foreground glowing-text">
+        {word}
+      </Text>
     </Animated.Text>
   );
 }
