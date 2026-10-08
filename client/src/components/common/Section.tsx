@@ -35,7 +35,7 @@ function Section({
   const n3 = THEME[resolvedTheme].n3;
 
   return (
-    <View className={cn(`border border-border relative`, className)}>
+    <View className={cn(`border border-border relative p-3 pt-10`, className)}>
       {showIcons.tl && (
         <View className="text-sm z-10 absolute top-[-8.5px] left-[-8.5px] text-n-3">
           <Entypo name="plus" size={18} color={n3} />
@@ -115,7 +115,7 @@ function SectionTag({ children }: PropsWithChildren) {
   return (
     <MaskedView
       maskElement={
-        <Text className="text-sm text-foreground font-medium uppercase">
+        <Text className="text-xs text-center text-foreground font-medium uppercase">
           [{children}]
         </Text>
       }>
