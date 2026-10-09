@@ -4,7 +4,7 @@ import { Text } from './ui/Text';
 import { Href, router, usePathname } from 'expo-router';
 import { Button } from './ui/button';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const pages: { title: string; path: Href }[] = [
   { title: 'Projects', path: '/projects' },

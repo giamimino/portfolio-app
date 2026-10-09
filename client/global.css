@@ -4,86 +4,151 @@
 
 @layer base {
   :root {
-    --background: #fff;
-    --foreground: #0a0a0a;
+    --background: 255 255 255;
+    --foreground: 10 10 10;
 
-    --card: #ffffff;
-    --card-foreground: #0a0a0a;
+    --card: 255 255 255;
+    --card-foreground: 10 10 10;
 
-    --popover: #ffffff;
-    --popover-foreground: #0a0a0a;
+    --popover: 255 255 255;
+    --popover-foreground: 10 10 10;
 
-    --primary: #171717;
-    --primary-foreground: #fafafa;
+    --primary: 23 23 23;
+    --primary-foreground: 250 250 250;
 
-    --secondary: #f5f5f5;
-    --secondary-foreground: #171717;
+    --secondary: 245 245 245;
+    --secondary-foreground: 23 23 23;
 
-    --muted: #f5f5f5;
-    --muted-foreground: #737373;
+    --muted: 245 245 245;
+    --muted-foreground: 115 115 115;
 
-    --accent: #f5f5f5;
-    --accent-foreground: #171717;
+    --accent: 245 245 245;
+    --accent-foreground: 23 23 23;
 
-    --destructive: #ef4444;
+    --destructive: 239 68 68;
 
-    --border: #e5e5e5;
-    --input: #e5e5e5;
-    --ring: #a1a1a1;
+    --border: 229 229 229;
+    --input: 229 229 229;
+    --ring: 161 161 161;
 
     --radius: 0.625rem;
 
-    --chart-1: #e76e4b;
-    --chart-2: #2a9d8f;
-    --chart-3: #264653;
-    --chart-4: #e9c46a;
-    --chart-5: #f4a261;
+    --chart-1: 231 110 75;
+    --chart-2: 42 157 143;
+    --chart-3: 38 70 83;
+    --chart-4: 233 196 106;
+    --chart-5: 244 162 97;
 
-    --n-2: #262626;
-    --n-8: #fafafa;
-    --n-3: #737373;
+    --n-2: 38 38 38;
+    --n-8: 250 250 250;
+    --n-3: 115 115 115;
+
+    --brown-60: 81 70 58;
+    --brown-70: 61 51 41;
+    --brown-80: 75 64 53;
+
+    --dark-02: 242 242 242;
+    --dark-03: 238 238 238;
+    --dark-06: 240 240 240;
+    --dark-10: 229 229 229;
+    --dark-12: 224 224 224;
+    --dark-15: 217 217 217;
+    --dark-25: 191 191 191;
+
+    --grey-10: 228 228 227;
+    --grey-20: 213 213 212;
+    --grey-30: 183 183 184;
+    --grey-40: 152 153 154;
+    --grey-50: 122 122 124;
+    --grey-60: 99 99 101;
+    --grey-70: 76 76 78;
+    --grey-80: 52 52 54;
+    --grey-90: 29 29 31;
+    --grey-100: 10 10 12;
+
+    --orange-10: 122 63 67;
+
+    --c-8: 55 55 55;
+    --b-9: 70 70 70;
+    --b-1: 228 228 228;
+    --a-3: 92 92 92;
+    --b-1-active: 180 180 180;
   }
 
   .dark:root {
-    --background: #0a0a0a;
-    --foreground: #fafafa;
+    --background: 10 10 10;
+    --foreground: 250 250 250;
 
-    --card: #0a0a0a;
-    --card-foreground: #fafafa;
+    --card: 10 10 10;
+    --card-foreground: 250 250 250;
 
-    --popover: #0a0a0a;
-    --popover-foreground: #fafafa;
+    --popover: 10 10 10;
+    --popover-foreground: 250 250 250;
 
-    --primary: #fafafa;
-    --primary-foreground: #171717;
+    --primary: 250 250 250;
+    --primary-foreground: 23 23 23;
 
-    --secondary: #262626;
-    --secondary-foreground: #fafafa;
+    --secondary: 38 38 38;
+    --secondary-foreground: 250 250 250;
 
-    --muted: #262626;
-    --muted-foreground: #a3a3a3;
+    --muted: 38 38 38;
+    --muted-foreground: 163 163 163;
 
-    --accent: #262626;
-    --accent-foreground: #fafafa;
+    --accent: 38 38 38;
+    --accent-foreground: 250 250 250;
 
-    --destructive: #e43d3d;
+    --destructive: 228 61 61;
 
-    --border: #262626;
-    --input: #262626;
-    --ring: #737373;
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 115 115 115;
 
-    --chart-1: #3b82f6;
-    --chart-2: #2dbd9f;
-    --chart-3: #f28c28;
-    --chart-4: #9b5de5;
-    --chart-5: #e83e8c;
+    --chart-1: 59 130 246;
+    --chart-2: 45 189 159;
+    --chart-3: 242 140 40;
+    --chart-4: 155 93 229;
+    --chart-5: 232 62 140;
 
-    --n-2: #e5e5e5;
-    --n-8: #101010;
-    --n-3: #a3a3a3;
+    --n-2: 229 229 229;
+    --n-8: 16 16 16;
+    --n-3: 163 163 163;
+
+    --brown-60: 174 155 132;
+    --brown-70: 194 180 163;
+    --brown-80: 169 152 136;
+
+    --dark-02: 13 13 13;
+    --dark-03: 17 17 17;
+    --dark-06: 15 15 15;
+    --dark-10: 26 26 26;
+    --dark-12: 31 31 31;
+    --dark-15: 38 38 38;
+    --dark-25: 64 64 64;
+
+    --grey-10: 27 27 26;
+    --grey-20: 42 42 41;
+    --grey-30: 72 72 71;
+    --grey-40: 103 102 101;
+    --grey-50: 133 133 131;
+    --grey-60: 156 156 154;
+    --grey-70: 179 179 178;
+    --grey-80: 203 203 201;
+    --grey-90: 226 226 224;
+    --grey-100: 245 245 243;
+
+    --orange-10: 216 132 136;
+
+    --c-8: 200 200 200;
+    --b-9: 185 185 185;
+    --b-1: 27 27 27;
+    --a-3: 163 163 163;
+    --b-1-active: 75 75 75;
   }
 }
 
 .glowing-text {
-  text-shadow: 0 0 15px var(--foreground);
+  text-shadow:
+    0 0 5px rgb(250 250 250 / 0.8),
+    0 0 15px rgb(250 250 250 / 0.4),
+    0 0 30px rgb(250 250 250 / 0.2);
 }
