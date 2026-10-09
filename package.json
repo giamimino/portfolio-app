@@ -33,6 +33,7 @@
     "format:server:check": "npm run format:check --workspace=portfolio-server",
     "format:server:fix": "npm run format:fix --workspace=portfolio-server",
     "typecheck:client": "npm run typecheck --workspace=portfolio-app",
+    "typecheck:server": "npm run typecheck --workspace=portfolio-server",
     "prepare": "husky"
   },
   "lint-staged": {
