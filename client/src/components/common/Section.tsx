@@ -10,8 +10,6 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { InView } from 'react-native-intersection-observer';
-import { LinearGradient } from 'expo-linear-gradient';
-import MaskedView from '@react-native-masked-view/masked-view';
 import { useTheme } from '@/providers/ThemeProvider';
 import { THEME } from '@/lib/theme';
 
@@ -109,26 +107,10 @@ function SectionTitle({ title }: { title: string }) {
 }
 
 function SectionTag({ children }: PropsWithChildren) {
-  const { resolvedTheme } = useTheme();
-
-  const foreground = THEME[resolvedTheme].default;
   return (
-    <MaskedView
-      maskElement={
-        <Text className="text-xs text-center text-foreground font-medium uppercase">
-          [{children}]
-        </Text>
-      }>
-      <LinearGradient
-        colors={['#d1d5db', '#ddd', foreground]}
-        locations={[0, 0.05, 1]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1 }}>
-        <Text className="text-sm font-medium uppercase opacity-0 text-foreground">
-          [{children}]
-        </Text>
-      </LinearGradient>
-    </MaskedView>
+    <Text className="text-foreground/55 text-[10px] font-bold tracking-[1.5px]">
+      [ {children} ]
+    </Text>
   );
 }
 
@@ -136,8 +118,17 @@ function SectionHeader({ children }: PropsWithChildren) {
   return <View className="flex-col gap-2.5 items-center">{children}</View>;
 }
 
+function SectionDescription({ children }: PropsWithChildren) {
+  return (
+    <Text className="text-foreground/70 text-md text-center glowing-text">
+      {children}
+    </Text>
+  );
+}
+
 Section.Title = SectionTitle;
 Section.Tag = SectionTag;
 Section.Header = SectionHeader;
+Section.Description = SectionDescription;
 
 export default Section;

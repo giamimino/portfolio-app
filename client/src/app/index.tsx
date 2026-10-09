@@ -3,7 +3,6 @@ import AboutCard from '@/components/common/about-card';
 import AnimatedIntro from '@/components/common/Animated-intro';
 import Section from '@/components/common/Section';
 import Container from '@/components/layout/Container';
-import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/providers/ThemeProvider';
 import { clsx } from 'clsx';
@@ -15,7 +14,7 @@ export default function HomeScreen() {
   return (
     <IOScrollView>
       <Container>
-        <View className='flex-col'>
+        <View className="flex-col">
           <Section
             noIcons={{ tr: true, tl: true, bl: true, br: true }}
             className="gap-15 items-center justify-center border-0">
@@ -55,13 +54,23 @@ export default function HomeScreen() {
               tags={['React', 'Next.js', 'Prisma']}
             />
           </Section>
-          <Section className='flex-col gap-8' noIcons={{ tl: true, tr: true }}>
+          <Section className="flex-col gap-8" noIcons={{ tl: true, tr: true }}>
             <Section.Header>
               <Section.Tag>MY PERSONAL WORK</Section.Tag>
               <Section.Title title="Personal Projects" />
             </Section.Header>
 
-            <Text variant={"h4"}>
+            <Text variant={'h4'}>
+              Server Needed for this section (expected in v0.6.0)
+            </Text>
+          </Section>
+          <Section className="flex-col gap-8" noIcons={{ tl: true, tr: true }}>
+            <Section.Header>
+              <Section.Tag>ABOUT</Section.Tag>
+              <Section.Title title="Who am I?" />
+            </Section.Header>
+
+            <Text variant={'h4'}>
               Server Needed for this section (expected in v0.6.0)
             </Text>
           </Section>
