@@ -14,7 +14,7 @@ export function isAllowedOrigin(origin: string | null) {
 
 export async function GET(req: Request) {
   if (!isAllowedOrigin(req.headers.get('origin'))) {
-    const data = await getAboutData()
+    const data = await getAboutData();
 
     return NextResponse.json(
       {
