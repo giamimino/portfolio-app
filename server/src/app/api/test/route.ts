@@ -1,4 +1,4 @@
-import { corsHeaders } from '@/lib/api/cors';
+import getAboutData from '@/services/getAboutData';
 import { NextResponse } from 'next/server';
 
 const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS ?? '')
@@ -13,9 +13,9 @@ export function isAllowedOrigin(origin: string | null) {
 }
 
 export async function GET(req: Request) {
-  const headers = corsHeaders(req.headers.get('origin'));
+  if (!isAllowedOrigin(req.headers.get('origin'))) {
+    const data = await getAboutData()
 
-  if (isAllowedOrigin(req.headers.get('origin'))) {
     return NextResponse.json(
       {
         success: true,
