@@ -1,4 +1,4 @@
-import getAboutData from '@/services/getAboutData';
+import getAboutData from '@/services/getAboutData.service';
 import { NextResponse } from 'next/server';
 
 const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS ?? '')

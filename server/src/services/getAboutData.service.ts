@@ -1,16 +1,9 @@
 import { ApiError } from '@/lib/api/response';
 import { db } from '@/lib/firebase/config';
+import { ServiceResponse } from '@/types';
 import { collection, getDocs } from 'firebase/firestore';
 
-type getAboutDataType<T> = {
-  success: true,
-  data: T,
-} | {
-  success: false,
-  error: ApiError
-}
-
-export default async function getAboutData<T>(): Promise<getAboutDataType<T>> {
+export default async function getAboutData<T>(): Promise<ServiceResponse<T>> {
   try {
     const docCollection = collection(db, 'about');
     const docSnap = await getDocs(docCollection);
