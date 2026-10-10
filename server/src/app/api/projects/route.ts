@@ -3,6 +3,7 @@ import { corsHeaders } from '@/lib/api/cors';
 import { errorResponse, successResponse } from '@/lib/api/response';
 import getAboutData from '@/services/getAboutData.service';
 import { Timestamp } from 'firebase/firestore';
+import getProjects from '@/services/getProjects.service';
 
 const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS ?? '')
   .split(',')
@@ -22,12 +23,18 @@ export async function GET(req: Request) {
     if (!isAllowedOrigin(origin))
       return errorResponse('ORIGIN_NOT_ALLOWED', 'Origin is not allowed', 403);
 
-    const data = await getAboutData<
+    const data = await getProjects<
       {
         id: string;
-        createdAt: Timestamp;
-        text: string;
+        description: string;
+        tags: string[];
+        type: string;
+        created_at: Timestamp;
         title: string;
+        project_github_url: string;
+        category: string;
+        project_id: string;
+        thum: string;
       }[]
     >();
 
