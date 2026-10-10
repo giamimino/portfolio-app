@@ -2,7 +2,7 @@ import { db } from '@/lib/firebase/config';
 import { ServiceResponse } from '@/types';
 import { doc, getDoc } from 'firebase/firestore';
 
-export default async function getProjects<T>(
+export default async function getProject<T>(
   id: string,
 ): Promise<ServiceResponse<T>> {
   try {

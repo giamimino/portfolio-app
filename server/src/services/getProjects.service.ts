@@ -7,7 +7,7 @@ export default async function getProjects<T>(): Promise<ServiceResponse<T>> {
     const docCol = collection(db, 'projects');
     const docsSnapshot = await getDocs(docCol);
 
-    const projectsList = docsSnapshot.forEach(doc => ({
+    const projectsList = docsSnapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data(),
     })) as T;
