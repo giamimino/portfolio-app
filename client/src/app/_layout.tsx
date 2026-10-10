@@ -1,7 +1,7 @@
+import '../../global.css';
 import { AppProviders } from '@/providers/AppProviders';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import '../../global.css';
 import { Header } from '@/components/header';
 import Navigation from '@/components/navigation';
 import { useTheme } from '@/providers/ThemeProvider';

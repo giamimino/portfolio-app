@@ -61,6 +61,18 @@ const animations = {
       translateY: 0,
     },
   },
+  opacity: {
+    from: {
+      opacity: 0,
+      translateX: 0,
+      translateY: 0,
+    },
+    to: {
+      opacity: 1,
+      translateX: 0,
+      translateY: 0,
+    },
+  },
 };
 
 const AnimationTypes = {
