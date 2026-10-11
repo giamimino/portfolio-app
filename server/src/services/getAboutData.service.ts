@@ -1,4 +1,3 @@
-import { ApiError } from '@/lib/api/response';
 import { db } from '@/lib/firebase/config';
 import { ServiceResponse } from '@/types';
 import { collection, getDocs } from 'firebase/firestore';

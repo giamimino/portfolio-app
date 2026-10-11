@@ -1,7 +1,4 @@
-import { NextResponse } from 'next/server';
-import { corsHeaders } from '@/lib/api/cors';
 import { errorResponse, successResponse } from '@/lib/api/response';
-import getAboutData from '@/services/getAboutData.service';
 import { Timestamp } from 'firebase/firestore';
 import getProjects from '@/services/getProjects.service';
 

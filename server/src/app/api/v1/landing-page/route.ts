@@ -1,4 +1,4 @@
-import { errorResponse, successResponse } from '../../../lib/api/response';
+import { errorResponse, successResponse } from '@/lib/api/response';
 import getLandingPageData from '@/services/getLandingPageData.service';
 import getLatestProjects from '@/services/getLatestProjects.service';
 import { ExpPanelAboutType, ProjectType } from '@/types';
