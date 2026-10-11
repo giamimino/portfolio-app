@@ -1,7 +1,6 @@
 import { errorResponse, successResponse } from '@/lib/api/response';
 import getProject from '@/services/getProject.service';
 import { Timestamp } from 'firebase-admin/firestore';
-import { NextResponse } from 'next/server';
 
 const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS ?? '')
   .split(',')
