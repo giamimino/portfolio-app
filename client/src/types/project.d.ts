@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectType {
   project_id: string;
   project_github_url: string;
   preview_url?: string;
@@ -10,3 +10,11 @@ export interface Project {
   tags: string[];
   created_at: Date;
 }
+
+export type ExpPanelAboutType = {
+  description: string;
+  level: string;
+  title: string;
+  id: string;
+};
+

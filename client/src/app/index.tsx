@@ -1,16 +1,34 @@
 import Motion from '@/components/animations/Motion';
 import AboutCard from '@/components/common/about-card';
 import AnimatedIntro from '@/components/common/Animated-intro';
+import Contact from '@/components/common/Contacts';
+import ExpandablePanel from '@/components/common/expandable-panel';
 import Section from '@/components/common/Section';
 import Container from '@/components/layout/Container';
 import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/providers/ThemeProvider';
+import { ExpPanelAboutType, ProjectType } from '@/types';
 import { clsx } from 'clsx';
+import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { IOScrollView } from 'react-native-intersection-observer';
 
+const endpoint = `${process.env.EXPO_PUBLIC_API_URL}/api/v1/landing-page`;
+
 export default function HomeScreen() {
+  const [data, setData] = useState<any | null>(null);
   const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setData(data.data);
+        }
+      });
+  }, []);
+
   return (
     <IOScrollView>
       <Container>
@@ -68,11 +86,32 @@ export default function HomeScreen() {
             <Section.Header>
               <Section.Tag>ABOUT</Section.Tag>
               <Section.Title title="Who am I?" />
+              <Section.Description>
+                I learn fast and work productively, focusing on constant
+                improvement rather than wasting time.
+              </Section.Description>
             </Section.Header>
 
-            <Text variant={'h4'}>
-              Server Needed for this section (expected in v0.6.0)
-            </Text>
+            <View className="flex-col">
+              {data &&
+                data.about.success &&
+                data.about.data
+                  .sort(
+                    (a: ExpPanelAboutType, b: ExpPanelAboutType) =>
+                      Number(a.level) - Number(b.level),
+                  )
+                  .map((item: ExpPanelAboutType) => (
+                    <ExpandablePanel key={item.id}>
+                      <ExpandablePanel.Header>
+                        {item.title}
+                      </ExpandablePanel.Header>
+                      <ExpandablePanel.Content content={item.description} />
+                    </ExpandablePanel>
+                  ))}
+            </View>
+            <View className="pt-8">
+              <Contact />
+            </View>
           </Section>
         </View>
         <View className="h-20 mt-5" />
