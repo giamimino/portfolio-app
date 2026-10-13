@@ -1,5 +1,4 @@
 import { ContactsSocial } from '@/constants/contacts.constant';
-import React, { useEffect, useState } from 'react';
 import { Linking, TouchableOpacity, View } from 'react-native';
 import { Text } from '../ui/Text';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -7,8 +6,8 @@ import Animated, { LinearTransition } from 'react-native-reanimated';
 
 export default function Contact() {
   const handleClick = async (value: string | undefined) => {
-    if(!value) return;
-    
+    if (!value) return;
+
     const supported = await Linking.canOpenURL(value);
 
     if (supported) {

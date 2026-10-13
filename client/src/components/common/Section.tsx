@@ -34,7 +34,9 @@ function Section({
   const n3 = THEME[resolvedTheme].n3;
 
   return (
-    <Animated.View layout={LinearTransition.duration(400)} className={cn(`border border-border relative px-4 py-10`, className)}>
+    <Animated.View
+      layout={LinearTransition.duration(400)}
+      className={cn(`border border-border relative px-4 py-10`, className)}>
       {showIcons.tl && (
         <View className="text-sm z-10 absolute top-[-8.5px] left-[-8.5px] text-n-3">
           <Entypo name="plus" size={18} color={n3} />

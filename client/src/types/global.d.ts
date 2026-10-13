@@ -1,10 +1,10 @@
-import { Icon } from "@expo/vector-icons/build/createIconSet";
+import { Icon } from '@expo/vector-icons/build/createIconSet';
 
 export type ContactItem =
   | {
       icon: Icon;
       iconName: string;
-      type: "redirect";
+      type: 'redirect';
       provider: string;
       account: string;
       redirectUrl: string;
@@ -13,7 +13,7 @@ export type ContactItem =
   | {
       icon: Icon;
       iconName: string;
-      type: "copy";
+      type: 'copy';
       provider: string;
       account: string;
       redirectUrl?: never;

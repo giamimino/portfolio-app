@@ -17,4 +17,3 @@ export type ExpPanelAboutType = {
   title: string;
   id: string;
 };
-

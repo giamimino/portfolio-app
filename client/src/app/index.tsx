@@ -7,7 +7,7 @@ import Section from '@/components/common/Section';
 import Container from '@/components/layout/Container';
 import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/providers/ThemeProvider';
-import { ExpPanelAboutType, ProjectType } from '@/types';
+import { ExpPanelAboutType } from '@/types';
 import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';

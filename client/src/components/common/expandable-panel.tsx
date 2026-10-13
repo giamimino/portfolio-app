@@ -1,4 +1,3 @@
-import { ExpPanelAboutType } from '@/types';
 import {
   createContext,
   PropsWithChildren,
@@ -70,7 +69,7 @@ function ExpandablePanelHeader({ children }: PropsWithChildren) {
         duration: 400,
       }),
     );
-  }, [open]);
+  }, [open, progress]);
 
   return (
     <TouchableOpacity onPress={() => setOpen(prev => !prev)}>
@@ -96,7 +95,7 @@ function ExpandablePanelContent({ content }: { content: string }) {
         duration: 700,
       }),
     );
-  }, [open]);
+  }, [open, opacity]);
 
   return (
     <View className="p-1">
@@ -105,13 +104,11 @@ function ExpandablePanelContent({ content }: { content: string }) {
           {Array.isArray(content) ? (
             <View className="flex-col justify-start items-start">
               {content.map((p, i) => (
-                <View className='flex-row' key={p}>
-                  <Text className='text-foreground'>
+                <View className="flex-row" key={p}>
+                  <Text className="text-foreground">
                     <Entypo name="dot-single" size={24} />
                   </Text>
-                  <Text>
-                    {p}
-                  </Text>
+                  <Text>{p}</Text>
                 </View>
               ))}
             </View>
