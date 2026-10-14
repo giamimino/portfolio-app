@@ -5,9 +5,10 @@ import Contact from '@/components/common/Contacts';
 import ExpandablePanel from '@/components/common/expandable-panel';
 import Section from '@/components/common/Section';
 import Container from '@/components/layout/Container';
+import Project from '@/components/ui/project';
 import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/providers/ThemeProvider';
-import { ExpPanelAboutType } from '@/types';
+import { ExpPanelAboutType, ProjectType } from '@/types';
 import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
@@ -78,9 +79,21 @@ export default function HomeScreen() {
               <Section.Title title="Personal Projects" />
             </Section.Header>
 
-            <Text variant={'h4'}>
-              Server Needed for this section (expected in v0.6.0)
-            </Text>
+            <View className="flex-col gap-4">
+              {data &&
+                data.projects.success &&
+                data.projects.data &&
+                data.projects.data.map((project: ProjectType) => (
+                  <Project data={project} key={project.project_id}>
+                    <Project.Thumb />
+
+                    <Project.Header>
+                      <Project.Title />
+                      <Project.Tags />
+                    </Project.Header>
+                  </Project>
+                ))}
+            </View>
           </Section>
           <Section className="flex-col gap-8" noIcons={{ tl: true, tr: true }}>
             <Section.Header>
