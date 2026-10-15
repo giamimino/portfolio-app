@@ -19,3 +19,18 @@ export type ContactItem =
       redirectUrl?: never;
       copyValue: string;
     };
+
+export type ApiError = {
+  code: string;
+  message: string;
+};
+
+export type ApiSuccess<T> = {
+  success: true;
+  data: T;
+};
+
+export type ApiFailure = {
+  success: false;
+  error: ApiError;
+};

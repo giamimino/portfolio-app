@@ -7,27 +7,32 @@ import Section from '@/components/common/Section';
 import Container from '@/components/layout/Container';
 import Project from '@/components/ui/project';
 import { Text } from '@/components/ui/Text';
+import api from '@/lib/api';
 import { useTheme } from '@/providers/ThemeProvider';
 import { ExpPanelAboutType, ProjectType } from '@/types';
+import { Api } from '@/types/api/api';
 import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { IOScrollView } from 'react-native-intersection-observer';
 
-const endpoint = `${process.env.EXPO_PUBLIC_API_URL}/api/v1/landing-page`;
-
 export default function HomeScreen() {
-  const [data, setData] = useState<any | null>(null);
+  const [data, setData] = useState<
+    Extract<Api.v1.landing_page.Response, { success: true }>['data'] | null
+  >(null);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    fetch(endpoint)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setData(data.data);
-        }
-      });
+    const getLandigPageData = async () => {
+      const res =
+        await api.get<Api.v1.landing_page.Response>('v1/landing-page');
+
+      if (res.success) {
+        setData(res.data);
+      }
+    };
+
+    getLandigPageData();
   }, []);
 
   return (

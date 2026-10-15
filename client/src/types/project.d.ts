@@ -9,6 +9,7 @@ export interface ProjectType {
   thumb: string;
   tags: string[];
   created_at: Date;
+  id: string;
 }
 
 export type ExpPanelAboutType = {
