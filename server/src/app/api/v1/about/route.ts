@@ -20,7 +20,7 @@ export async function GET(req: Request) {
     if (!isAllowedOrigin(origin))
       return errorResponse('ORIGIN_NOT_ALLOWED', 'Origin is not allowed', 403);
 
-    const data = await getAboutData<
+    const res = await getAboutData<
       {
         id: string;
         createdAt: Timestamp;
@@ -28,6 +28,10 @@ export async function GET(req: Request) {
         title: string;
       }[]
     >();
+
+    if (!res.success) return errorResponse(res.error.code, res.error.message, 404);
+
+    const data = res.data
 
     return successResponse(data, 200);
   } catch {
