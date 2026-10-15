@@ -20,7 +20,7 @@ export async function GET(req: Request) {
     if (!isAllowedOrigin(origin))
       return errorResponse('ORIGIN_NOT_ALLOWED', 'Origin is not allowed', 403);
 
-    const data = await getProjects<
+    const res = await getProjects<
       {
         id: string;
         description: string;
@@ -35,7 +35,10 @@ export async function GET(req: Request) {
       }[]
     >();
 
-    return successResponse(data, 200);
+    if (!res.success)
+      return errorResponse(res.error.code, res.error.message, 404);
+
+    return successResponse(res.data, 200);
   } catch {
     return errorResponse(
       'INTERNAL_SERVER_ERROR',
