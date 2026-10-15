@@ -5,6 +5,7 @@ import api from '@/lib/api';
 import { Api } from '@/types/api/api';
 import { TextConvert } from '@/utils/TextConvert';
 import Entypo from '@expo/vector-icons/Entypo';
+import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { IOScrollView } from 'react-native-intersection-observer';
@@ -38,10 +39,10 @@ export default function AboutScreen() {
           {about ? (
             about
               .sort((a, b) => a.createdAt - b.createdAt)
-              .map(data => (
+              .map((data, i) => (
                 <View
                   key={data.id}
-                  className="py-5 border-b border-border flex-col gap-2.5">
+                  className={clsx("py-5 flex-col gap-2.5", i !== 0 ? "border-t border-border" : "")}>
                   <Section.Title title={data.title} className="text-left" />
                   <View className="flex-col gap-2">
                     {TextConvert(data.text).map(item => (
@@ -61,6 +62,8 @@ export default function AboutScreen() {
             <Text>Loading...</Text>
           )}
         </Section>
+
+        <View className='h-20' />
       </Container>
     </IOScrollView>
   );
