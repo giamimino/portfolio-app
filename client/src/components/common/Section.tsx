@@ -13,7 +13,7 @@ import Animated, {
 import { InView } from 'react-native-intersection-observer';
 import { useTheme } from '@/providers/ThemeProvider';
 import { THEME } from '@/lib/theme';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 function Section({
   children,
@@ -63,7 +63,13 @@ function Section({
   );
 }
 
-function SectionTitle({ title, className }: { title: string, className?: string }) {
+function SectionTitle({
+  title,
+  className,
+}: {
+  title: string;
+  className?: string;
+}) {
   const progress = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -102,7 +108,10 @@ function SectionTitle({ title, className }: { title: string, className?: string 
       }}>
       <Animated.View style={animatedStyle}>
         <Text
-          className={clsx(`text-foreground font-extrabold text-xl text-center glowing-text`, className)}>
+          className={clsx(
+            `text-foreground font-extrabold text-xl text-center glowing-text`,
+            className,
+          )}>
           {title}
         </Text>
       </Animated.View>

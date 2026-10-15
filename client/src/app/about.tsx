@@ -19,7 +19,9 @@ export default function AboutScreen() {
       const res = await api.get<Api.v1.about.Response>('v1/about');
 
       if (res.success) {
-        setAbout(res.data.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds));
+        setAbout(
+          res.data.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds),
+        );
       }
     };
 
@@ -37,8 +39,10 @@ export default function AboutScreen() {
             about
               .sort((a, b) => a.createdAt - b.createdAt)
               .map(data => (
-                <View key={data.id} className='py-5 border-b border-border flex-col gap-2.5'>
-                  <Section.Title title={data.title} className='text-left' />
+                <View
+                  key={data.id}
+                  className="py-5 border-b border-border flex-col gap-2.5">
+                  <Section.Title title={data.title} className="text-left" />
                   <View className="flex-col gap-2">
                     {TextConvert(data.text).map(item => (
                       <View key={item.text} className="flex-row">
@@ -47,7 +51,7 @@ export default function AboutScreen() {
                             <Entypo name="dot-single" />
                           </Text>
                         )}
-                        <Text className='text-foreground/70'>{item.text}</Text>
+                        <Text className="text-foreground/70">{item.text}</Text>
                       </View>
                     ))}
                   </View>
