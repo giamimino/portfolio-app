@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.6.0] - 2026/10/15
+
+### What's Changed
+
+### Development Enviroment
+
+* Implement a centralized API client Library.
+* Added TypeScript types for API response.
+
+### UI
+
+* Added Project and AboutMe Sections to the Landing Page.
+* Added dedicated Projects and About Pages.
+
+### server
+
+* Added a Landing page API endpoint.
+
 ## [v0.5.0] - 2026/10/11
 
 ### Development Environment
@@ -22,7 +40,7 @@ All notable changes to this project will be documented in this file.
 
 ## [v0.4.0] - 2026/10/05
 
-## What's Changede
+## What's Changed
 
 * Established Application Layout (e.g., SafeArea, Container, etc)
 * Implement Home screen, Contact UI and Animated Components
