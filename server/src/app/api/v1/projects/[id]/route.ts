@@ -37,7 +37,7 @@ export async function GET(
     }>(id);
 
     return successResponse(data, 200);
-  } catch (err) {
+  } catch {
     return errorResponse(
       'INTERNAL_SERVER_ERROR',
       'Unexpected server error',
