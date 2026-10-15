@@ -24,7 +24,7 @@ export default function ProjectsScreen() {
 
     getProjects();
   }, []);
-  
+
   return (
     <IOScrollView>
       <Container>

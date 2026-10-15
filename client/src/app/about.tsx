@@ -42,7 +42,10 @@ export default function AboutScreen() {
               .map((data, i) => (
                 <View
                   key={data.id}
-                  className={clsx("py-5 flex-col gap-2.5", i !== 0 ? "border-t border-border" : "")}>
+                  className={clsx(
+                    'py-5 flex-col gap-2.5',
+                    i !== 0 ? 'border-t border-border' : '',
+                  )}>
                   <Section.Title title={data.title} className="text-left" />
                   <View className="flex-col gap-2">
                     {TextConvert(data.text).map(item => (
@@ -63,7 +66,7 @@ export default function AboutScreen() {
           )}
         </Section>
 
-        <View className='h-20' />
+        <View className="h-20" />
       </Container>
     </IOScrollView>
   );
