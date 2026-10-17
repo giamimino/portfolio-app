@@ -34,7 +34,9 @@
     "format:server:fix": "npm run format:fix --workspace=portfolio-server",
     "typecheck:client": "npm run typecheck --workspace=portfolio-app",
     "typecheck:server": "npm run typecheck --workspace=portfolio-server",
-    "prepare": "husky"
+    "prepare": "husky",
+    "server:test": "npm run test -w portfolio-server",
+    "server:test:run": "npm run test:run -w portfolio-server"
   },
   "lint-staged": {
     "client/src/**/*.{js,jsx,ts,tsx}": [

@@ -2,6 +2,7 @@
   "name": "portfolio-server",
   "version": "0.6.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +10,9 @@
     "lint": "eslint",
     "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
     "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "firebase": "^12.19.0",
@@ -27,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
     "prettier": "^3.9.8",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.0.5"
   }
 }
