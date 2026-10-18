@@ -2,24 +2,8 @@ import { errorResponse, successResponse } from '@/lib/api/response';
 import getAboutData from '@/services/getAboutData.service';
 import { Timestamp } from 'firebase/firestore';
 
-const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS ?? '')
-  .split(',')
-  .map(origin => origin.trim())
-  .filter(Boolean);
-
-export function isAllowedOrigin(origin: string | null) {
-  if (!origin) return true;
-
-  return allowedOrigins.includes(origin);
-}
-
-export async function GET(req: Request) {
+export async function GET() {
   try {
-    const origin = req.headers.get('origin');
-
-    if (!isAllowedOrigin(origin))
-      return errorResponse('ORIGIN_NOT_ALLOWED', 'Origin is not allowed', 403);
-
     const res = await getAboutData<
       {
         id: string;
@@ -29,9 +13,10 @@ export async function GET(req: Request) {
       }[]
     >();
 
-    if (!res.success) return errorResponse(res.error.code, res.error.message, 404);
+    if (!res.success)
+      return errorResponse(res.error.code, res.error.message, 404);
 
-    const data = res.data
+    const data = res.data;
 
     return successResponse(data, 200);
   } catch {
