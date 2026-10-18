@@ -2,26 +2,12 @@ import { errorResponse, successResponse } from '@/lib/api/response';
 import getProject from '@/services/getProject.service';
 import { Timestamp } from 'firebase-admin/firestore';
 
-const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS ?? '')
-  .split(',')
-  .map(origin => origin.trim())
-  .filter(Boolean);
-
-export function isAllowedOrigin(origin: string | null) {
-  if (!origin) return true;
-
-  return allowedOrigins.includes(origin);
-}
-
 export async function GET(
   req: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id } = await params;
-    const origin = req.headers.get('origin');
-    if (!isAllowedOrigin(origin) || !id)
-      return errorResponse('ORIGIN_NOT_ALLOWED', 'Origin is not allowed', 403);
 
     const data = await getProject<{
       id: string;
