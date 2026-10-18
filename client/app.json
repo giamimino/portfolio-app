@@ -10,9 +10,6 @@
     "ios": {
       "icon": "./assets/images/icon-256.png"
     },
-    "splash": {
-      "image": "./assets/images/icon-256.png"
-    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon-256.png",
@@ -30,7 +27,15 @@
       "reactCompiler": true
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/icon-256.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
+        }
+      ]
     ],
     "extra": {
       "eas": {
