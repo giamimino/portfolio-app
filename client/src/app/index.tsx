@@ -24,8 +24,10 @@ export default function HomeScreen() {
 
   useEffect(() => {
     const getLandigPageData = async () => {
-      const res =
-        await api.get<Api.v1.landing_page.Response>('v1/landing-page');
+      const res = await api.get<Api.v1.landing_page.Response>(
+        'landing-page',
+        true,
+      );
 
       if (res.success) {
         setData(res.data);

@@ -17,7 +17,7 @@ export default function AboutScreen() {
 
   useEffect(() => {
     const getAboutData = async () => {
-      const res = await api.get<Api.v1.about.Response>('v1/about');
+      const res = await api.get<Api.v1.about.Response>('about', true);
 
       if (res.success) {
         setAbout(

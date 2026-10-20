@@ -3,7 +3,7 @@ import getLandingPageData from '@/services/getLandingPageData.service';
 import getLatestProjects from '@/services/getLatestProjects.service';
 import { ExpPanelAboutType, ProjectType } from '@/types';
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const about = await getLandingPageData<ExpPanelAboutType[]>();
     const projects = await getLatestProjects<ProjectType[]>();
