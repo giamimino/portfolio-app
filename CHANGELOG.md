@@ -1,88 +1,67 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project are documented here.
 
-## [v0.6.0] - 2026/10/15
+## [v0.7.0] - 2026-10-20
 
-### What's Changed
+### Added
+- Implemented shared API response caching to reduce redundant requests.
+- Added a theme toggle to the header for switching between themes.
+- Introduced server middleware for request processing.
 
-### Development Enviroment
+### Changed
+- Replaced origin-based API access checks with token-based authentication.
 
-* Implement a centralized API client Library.
-* Added TypeScript types for API response.
+## [v0.6.0] - 2026-10-15
 
-### UI
+### Added
+- Introduced a centralized API client to standardize communication with the server.
+- Added TypeScript types for API responses.
+- Added Project and About Me sections to the landing page.
+- Created dedicated Projects and About pages.
+- Introduced a landing page API endpoint.
 
-* Added Project and AboutMe Sections to the Landing Page.
-* Added dedicated Projects and About Pages.
+## [v0.5.0] - 2026-10-11
 
-### server
+### Added
+- Integrated Firebase.
+- Implemented server-side services and API endpoints.
+- Added a landing page to the Home tab.
 
-* Added a Landing page API endpoint.
+### Architecture
+- Split the project into separate client and server applications.
+- Established development workflows for both applications.
+- Set up the server architecture with error handling, response formatting, and CORS configuration.
 
-## [v0.5.0] - 2026/10/11
+## [v0.4.0] - 2026-10-05
 
-### Development Environment
+### Added
+- Established the application layout, including SafeArea and Container components.
+- Implemented the Home screen, Contact UI, and animated components.
+- Introduced reusable header and navigation layouts.
 
-* Split the project into two applications: client and server.
-* Configured development workflows for both applications.
-* Established the server architecture, including error handling, response formatting, and CORS configuration.
+## [v0.3.0] - 2026-09-28
 
-### UI
-
-* Added a landing page to the Home tab.
-
-### server
-
-* Integrated Firebase.
-* Implemented server-side services.
-* Added API endpoints.
-
-## [v0.4.0] - 2026/10/05
-
-## What's Changed
-
-* Established Application Layout (e.g., SafeArea, Container, etc)
-* Implement Home screen, Contact UI and Animated Components
-* Added new reusable layouts header and navigation menu.
-
-## [v0.3.0] - 2026/9/28
-
-## What's Changed
-
-### Application Architecture
-
-* Established application navigation
-* Introduced centralized application providers
-* Defined shared TypeScript types
-* Reorganized application assets
-
-### UI and Theming
-
-* Added reusable shared UI components
-* Implemented the application theme system with support for light, dark, and system
+### Added
+- Established application navigation and centralized providers.
+- Defined shared TypeScript types.
+- Reorganized application assets.
+- Introduced reusable UI components.
+- Implemented a theme system supporting light, dark, and system preferences.
 
 ## [v0.2.0] - 2026-09-25
 
-## Development Environment
-
-- Initialize React Native Expo project
-- Establish project file structure
-- Set up NativeWind
-- Set up Prettier
-- Set up CI workflow
-- Set up Husky and lint-staged
-- Set up Dependabot
-- Add GitHub issue and PR automation workflow
+### Development Environment
+- Initialized the React Native Expo project and established its file structure.
+- Configured NativeWind and Prettier.
+- Set up CI workflows, Husky, and lint-staged.
+- Integrated Dependabot and automated GitHub issue and pull request workflows.
 
 ## [v0.1.0] - 2026-09-21
 
 ### Added
-- Initial Portfolio-app repository
-- Project license
-- Versioning documentation
-- Changelog
-- Initial project documentation
+- Created the initial Portfolio App repository.
+- Added the project license, versioning documentation, changelog, and initial project documentation.
 
 ### Status
-Initial project setup. Application development has not started yet.
+Initial project setup. Application development had not yet started.
