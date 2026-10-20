@@ -1,10 +1,21 @@
+import { clsx } from 'clsx';
+import { BlurView } from 'expo-blur';
 import React, { PropsWithChildren } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
-export default function Tag({ children }: PropsWithChildren) {
+export default function Tag({
+  children,
+  className,
+}: PropsWithChildren & { className?: string }) {
   return (
-    <Text className="text-[10px] font-medium px-2 py-0.5 bg-foreground/20 backdrop-blur-lf text-foreground/80 rounded-full border border-border/20">
-      {children}
-    </Text>
+    <View className="rounded-full overflow-hidden">
+      <Text
+        className={clsx(
+          'text-[10px] font-medium px-2 py-0.5 bg-accent text-foreground/80 rounded-full border border-border',
+          className,
+        )}>
+        {children}
+      </Text>
+    </View>
   );
 }

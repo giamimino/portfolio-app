@@ -18,6 +18,10 @@ declare namespace Api {
 
     namespace projects {
       type Response = ApiFailure | ApiSuccess<ProjectType[]>;
+
+      namespace project {
+        type Response = ApiFailure | ApiSuccess<ProjectType>;
+      }
     }
 
     namespace landing_page {
