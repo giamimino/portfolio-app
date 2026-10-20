@@ -1,8 +1,9 @@
 import { ProjectType } from '@/types';
 import { createContext, PropsWithChildren, useContext } from 'react';
-import { Image, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import { Text } from './Text';
 import Tag from './tag';
+import { useRouter } from 'expo-router';
 
 const ProjectContext = createContext<ProjectType | null>(null);
 
@@ -19,11 +20,15 @@ function Project({
   data,
   children,
 }: PropsWithChildren & { data: ProjectType }) {
+  const router = useRouter();
+
   return (
     <ProjectContext.Provider value={data}>
-      <View className="border border-border relative min-h-[150px] rounded-lg overflow-hidden">
-        {children}
-      </View>
+      <TouchableOpacity onPress={() => router.push(`/projects/${data.id}`)}>
+        <View className="border border-border relative min-h-[150px] rounded-lg overflow-hidden">
+          {children}
+        </View>
+      </TouchableOpacity>
     </ProjectContext.Provider>
   );
 }

@@ -26,6 +26,7 @@ function RootNavigation() {
         <Stack.Screen name="projects" options={{ title: 'Projects' }} />
         <Stack.Screen name="about" options={{ title: 'About' }} />
         <Stack.Screen name="contact" options={{ title: 'Contact ' }} />
+        <Stack.Screen name="projects/[id]" options={{ title: 'Project ' }} />
       </Stack>
       <Navigation />
     </>

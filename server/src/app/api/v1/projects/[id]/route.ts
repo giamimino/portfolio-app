@@ -9,7 +9,7 @@ export async function GET(
   try {
     const { id } = await params;
 
-    const data = await getProject<{
+    const project = await getProject<{
       id: string;
       description: string;
       tags: string[];
@@ -21,6 +21,11 @@ export async function GET(
       project_id: string;
       thum: string;
     }>(id);
+
+    if (!project.success)
+      return errorResponse(project.error.code, project.error.message, 404);
+
+    const data = project.data;
 
     return successResponse(data, 200);
   } catch {

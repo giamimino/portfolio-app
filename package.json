@@ -55,5 +55,8 @@
     "lint-staged": "^17.5.1",
     "prettier": "^3.9.8",
     "typescript": "~6.0.3"
+  },
+  "dependencies": {
+    "expo-blur": "~57.0.3"
   }
 }
