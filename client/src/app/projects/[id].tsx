@@ -55,12 +55,11 @@ export default function ProjectScreen() {
   return (
     <IOScrollView>
       <Container>
-        {loading && (
+        {loading ? (
           <View>
             <Text>Loading...</Text>
           </View>
-        )}
-        {project ? (
+        ) : project ? (
           <View>
             <Motion duration={800} ease="ease-out" delay={400}>
               <View
