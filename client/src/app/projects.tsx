@@ -15,7 +15,7 @@ export default function ProjectsScreen() {
 
   useEffect(() => {
     const getProjects = async () => {
-      const res = await api.get<Api.v1.projects.Response>('v1/projects');
+      const res = await api.get<Api.v1.projects.Response>('projects', true);
 
       if (res.success) {
         setPorjects(res.data);
