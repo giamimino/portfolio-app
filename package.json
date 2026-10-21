@@ -34,7 +34,7 @@
     "format:server:fix": "npm run format:fix --workspace=portfolio-server",
     "typecheck:client": "npm run typecheck --workspace=portfolio-app",
     "typecheck:server": "npm run typecheck --workspace=portfolio-server",
-    "prepare": "husky",
+    "prepare": "if [ -z \"$CI\" ]; then husky; fi",
     "server:test": "npm run test -w portfolio-server",
     "server:test:run": "npm run test:run -w portfolio-server"
   },
@@ -55,8 +55,5 @@
     "lint-staged": "^17.5.1",
     "prettier": "^3.9.8",
     "typescript": "~6.0.3"
-  },
-  "dependencies": {
-    "expo-blur": "~57.0.3"
   }
 }
