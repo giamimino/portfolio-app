@@ -69,6 +69,24 @@ async function get<T>(endpoint: string, cache = false): Promise<T> {
   return data;
 }
 
+async function post<T, R>(endpoint: string, body: R): Promise<T> {
+  const url = `${API_URL}/api/v${VERSION}/${endpoint}`;
+
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${TOKEN}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const data = await res.json();
+
+  return data;
+}
+
 api.get = get;
+api.post = post;
 
 export default api;

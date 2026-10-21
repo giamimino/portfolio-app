@@ -8,7 +8,6 @@ import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Image, Linking, Text, View } from 'react-native';
 import { IOScrollView } from 'react-native-intersection-observer';
-import { BlurView } from 'expo-blur';
 import { Button } from '@/components/ui/button';
 import Motion from '@/components/animations/Motion';
 
@@ -48,7 +47,7 @@ export default function ProjectScreen() {
     };
 
     getProject(id);
-  }, [id]);
+  }, [id, navigation]);
 
   const shadowClr = THEME[resolvedTheme].border;
 

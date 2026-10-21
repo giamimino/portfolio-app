@@ -1,5 +1,4 @@
 import { clsx } from 'clsx';
-import { BlurView } from 'expo-blur';
 import React, { PropsWithChildren } from 'react';
 import { Text, View } from 'react-native';
 
