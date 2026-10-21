@@ -3,6 +3,14 @@ import { ExpPanelAboutType, ProjectType } from '../project';
 
 declare namespace Api {
   namespace v1 {
+    namespace contact {
+      type Request = {
+        template: string;
+      };
+
+      type Response =
+        ApiFailure | ApiSuccess<{ code: string; message: string }>;
+    }
     namespace about {
       type Response =
         | ApiFailure
