@@ -6,19 +6,16 @@
     "@expo/ui": "~57.0.20",
     "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
-    "@react-native-masked-view/masked-view": "0.3.2",
     "@rn-primitives/portal": "^1.5.3",
     "@rn-primitives/slot": "^1.5.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "expo": "~57.0.25",
-    "expo-blur": "^57.0.3",
     "expo-constants": "~57.0.19",
     "expo-device": "~57.0.2",
     "expo-font": "~57.0.4",
     "expo-glass-effect": "~57.0.4",
     "expo-image": "~57.0.5",
-    "expo-linear-gradient": "~57.0.2",
     "expo-linking": "~57.0.11",
     "expo-router": "~57.0.23",
     "expo-splash-screen": "~57.0.9",
@@ -32,7 +29,6 @@
     "react-native": "0.86.3",
     "react-native-gesture-handler": "~2.32.0",
     "react-native-intersection-observer": "^0.3.1",
-    "react-native-radial-gradient": "^1.2.1",
     "react-native-reanimated": "4.5.1",
     "react-native-safe-area-context": "~5.7.0",
     "react-native-screens": "~4.26.0",
@@ -63,8 +59,7 @@
     "lint": "expo lint",
     "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
     "format:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
-    "typecheck": "npx tsc --noEmit",
-    "prepare": "husky"
+    "typecheck": "npx tsc --noEmit"
   },
   "private": true
 }
