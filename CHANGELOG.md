@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here.
 
+## [v0.8.0] - 2026-10-21
+
+### Added
+
+- Added project documentation for architecture and development workflows.
+- Added individual project detail pages with in-depth project information.
+- Added a contact form API with email delivery support.
+
 ## [v0.7.0] - 2026-10-20
 
 ### Added
