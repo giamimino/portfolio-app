@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here.
 
+## [v0.9.0] - 2026-10-21
+
+### Changed
+- Prepared the project for production deployment.
+- Improved deployment readiness and production configuration.
+
 ## [v0.8.0] - 2026-10-21
 
 ### Added
