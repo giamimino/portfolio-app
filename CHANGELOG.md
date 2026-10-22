@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [v1.0.0] - 2026-10-22
+
+### Stable Release
+
+- Promoted the tested `v1.0.0-beta-1` build to the first stable release.
+- Verified APK installation and application functionality on a physical device.
+
 ## [v1.0.0-beta-2] - 2026-10-22
 
 ### Fixed
