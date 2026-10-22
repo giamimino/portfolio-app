@@ -1,15 +1,36 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL;
-const TOKEN = process.env.EXPO_PUBLIC_API_KEY;
+const API_URL = process.env.EXPO_PUBLIC_API_URL?.trim();
+const TOKEN = process.env.EXPO_PUBLIC_API_KEY?.trim();
 const VERSION = 1;
 const CACHE_KEY = '@myapp/cache';
 const EXPIERS_IN = 1000 * 60 * 60 * 24 * 12; // 12 days
 
-function api() {}
+function getUrl(endpoint: string): string {
+  if (!API_URL) {
+    throw new Error('EXPO_PUBLIC_API_URL is not configured for this build.');
+  }
+
+  if (!TOKEN) {
+    throw new Error('EXPO_PUBLIC_API_KEY is not configured for this build.');
+  }
+
+  return `${API_URL.replace(/\/+$/, '')}/api/v${VERSION}/${endpoint}`;
+}
+
+async function getResponse<T>(url: string, init: RequestInit): Promise<T> {
+  const res = await fetch(url, init);
+  if (!res.ok) {
+    throw new Error(
+      `API request failed with ${res.status} ${res.statusText}: ${url}`,
+    );
+  }
+
+  return res.json() as Promise<T>;
+}
 
 async function get<T>(endpoint: string, cache = false): Promise<T> {
-  const url = `${API_URL}/api/v${VERSION}/${endpoint}`;
+  const url = getUrl(endpoint);
 
   if (cache) {
     const keys = await AsyncStorage.getAllKeys();
@@ -45,14 +66,13 @@ async function get<T>(endpoint: string, cache = false): Promise<T> {
     }
   }
 
-  const res = await fetch(url, {
+  const data = await getResponse<T>(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${TOKEN}`,
     },
   });
-  const data: T = await res.json();
 
   if (cache) {
     const keys = await AsyncStorage.getAllKeys();
@@ -70,9 +90,9 @@ async function get<T>(endpoint: string, cache = false): Promise<T> {
 }
 
 async function post<T, R>(endpoint: string, body: R): Promise<T> {
-  const url = `${API_URL}/api/v${VERSION}/${endpoint}`;
+  const url = getUrl(endpoint);
 
-  const res = await fetch(url, {
+  return getResponse<T>(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -80,13 +100,7 @@ async function post<T, R>(endpoint: string, body: R): Promise<T> {
     },
     body: JSON.stringify(body),
   });
-
-  const data = await res.json();
-
-  return data;
 }
 
-api.get = get;
-api.post = post;
-
+const api = { get, post };
 export default api;
