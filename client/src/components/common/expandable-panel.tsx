@@ -74,7 +74,9 @@ function ExpandablePanelHeader({ children }: PropsWithChildren) {
   return (
     <TouchableOpacity onPress={() => setOpen(prev => !prev)}>
       <View className="flex-row justify-between items-center">
-        <Text className="text-lg glowing-text font-semibold">{children}</Text>
+        <Text className="text-lg glowing-text w-4/5 font-bold text-wrap">
+          {children}
+        </Text>
         <Animated.View style={animatedStyle}>
           <Text className="text-foreground">
             <Entypo name="plus" size={24} />
