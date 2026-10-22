@@ -4,6 +4,8 @@ import { Image, TouchableOpacity, View } from 'react-native';
 import { Text } from './Text';
 import Tag from './tag';
 import { useRouter } from 'expo-router';
+import { useTheme } from '@/providers/ThemeProvider';
+import { clsx } from 'clsx';
 
 const ProjectContext = createContext<ProjectType | null>(null);
 
@@ -25,7 +27,9 @@ function Project({
   return (
     <ProjectContext.Provider value={data}>
       <TouchableOpacity onPress={() => router.push(`/projects/${data.id}`)}>
-        <View className="border border-border relative min-h-[150px] rounded-lg overflow-hidden">
+        <View
+          className="relative min-h-[150px] rounded-lg overflow-hidden"
+          style={{ boxShadow: '0px 0px 20px rgba(0,0,0,1)' }}>
           {children}
         </View>
       </TouchableOpacity>
@@ -39,11 +43,22 @@ function ProjectHeader({ children }: PropsWithChildren) {
 
 function ProjectTitle() {
   const { title } = useProjectContext();
-  return <Text className="font-semibold glowing-text">{title}</Text>;
+  const { resolvedTheme } = useTheme();
+
+  return (
+    <Text
+      className={clsx(
+        'font-semibold text-white',
+        resolvedTheme === 'dark' ? 'glowing-text' : '',
+      )}>
+      {title}
+    </Text>
+  );
 }
 
 function ProjectBackgroundImage() {
   const { thumb } = useProjectContext();
+  const { resolvedTheme } = useTheme();
 
   return (
     <View className="absolute w-full h-full">
@@ -56,7 +71,11 @@ function ProjectBackgroundImage() {
       />
       <View
         className="w-full h-full"
-        style={{ boxShadow: `inset 0px 0px 100px 20px #000` }}
+        style={
+          resolvedTheme === 'dark'
+            ? { boxShadow: `inset 0px 0px 100px 20px #000` }
+            : { boxShadow: `inset 0px 0px 100px rgba(0,0,0,0.8)` }
+        }
       />
     </View>
   );
