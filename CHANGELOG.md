@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented here.
 
+## [v1.0.0-beta-1] - 2026-10-22
+
+### Fixed
+
+- Fixed production build issues.
+- Fixed APK installation failures.
+- Fixed APK installation issues with files downloaded from GitHub Releases.
+- Fixed environment variable handling in production builds.
+- Fixed the shared API library in the client application.
+- Fixed responsiveness issues in the About section.
+- Fixed the Project component's appearance in light mode.
+
+### Changed
+- Prepared the project for production deployment.
+- Improved deployment readiness and production configuration.
+
 ## [v0.9.0] - 2026-10-21
 
 ### Changed
