@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here.
 
+## [v1.0.0-beta-2] - 2026-10-22
+
+### Fixed
+
+- Fixed environment variable loading in production Android builds.
+
 ## [v1.0.0-beta-1] - 2026-10-22
 
 ### Fixed
