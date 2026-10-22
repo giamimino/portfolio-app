@@ -2,7 +2,7 @@
   "expo": {
     "name": "Portfolio",
     "slug": "portfolio",
-    "version": "v1.0.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon-256.png",
     "scheme": "portfolioapp",
@@ -13,7 +13,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon-256.png",
-        "backgroundColor": "#1a1a1a"
+        "backgroundColor": "#2E2E2E"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.gia22.portfolioapp"
@@ -31,9 +31,10 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/icon-256.png",
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "resizeMode": "contain"
+          "resizeMode": "contain",
+          "backgroundColor": "#2E2E2E"
         }
       ]
     ],
