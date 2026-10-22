@@ -1,6 +1,6 @@
 {
   "name": "portfolio-server",
-  "version": "v1.0.0",
+  "version": "v1.1.0",
   "private": true,
   "type": "module",
   "scripts": {

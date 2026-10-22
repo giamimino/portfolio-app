@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented here.
 
+## [v1.1.0] - 2026-10-22
+
+
+### Added
+- `splash-icon.png`: logo with rounded corners and a transparent background for the splash screen
+- Gray splash background color (`#2E2E2E`) in the `expo-splash-screen` plugin config
+
+### Changed
+- Splash screen now uses `splash-icon.png` instead of `icon-256.png`
+- App version changed from `v1.0.0` to `1.0.0` to meet the iOS numeric version requirement
+
+### Fixed
+- Splash screen showing a hard-edged dark square on a white background at startup
+
 ## [v1.0.0] - 2026-10-22
 
 ### Stable Release

@@ -1,7 +1,7 @@
 {
   "name": "portfolio-app",
   "main": "expo-router/entry",
-  "version": "v1.0.0",
+  "version": "v1.1.0",
   "dependencies": {
     "@expo/ui": "~57.0.20",
     "@expo/vector-icons": "^15.0.2",
