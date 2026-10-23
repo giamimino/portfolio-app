@@ -17,9 +17,9 @@
   "dependencies": {
     "firebase": "^12.19.0",
     "firebase-admin": "^14.5.0",
-    "next": "16.3.8",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "resend": "^6.34.1",
     "zod": "^4.6.5"
   },
